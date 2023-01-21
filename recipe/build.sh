@@ -1,5 +1,9 @@
 set -ex
 
+# Patch Cython such that it can be executed using Python
+mv "
+$BUILD_PREFIX/bin/python
+
 ./autogen.sh
 ./configure --prefix="$PREFIX" --enable-shared --disable-static
 
