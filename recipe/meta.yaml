@@ -1,5 +1,5 @@
 {% set name = "VapourSynth" %}
-{% set version = "60" %}
+{% set version = "61" %}
 
 package:
   name: {{ name|lower }}
@@ -7,11 +7,11 @@ package:
 
 source:
   url: https://github.com/vapoursynth/vapoursynth/archive/R{{ version }}.tar.gz
-  sha256: d0ff9b7d88d4b944d35dd7743d72ffcea5faa687f6157b160f57be45f4403a30
+  sha256: a5d4feeb056679dd1204153250d7c1d38e5a639e995d3c4e3a8e2e8fe1425b75
 
 build:
-  skip: True  # [win]
-  number: 2
+  skip: true  # [win]
+  number: 1
 
 requirements:
   build:
@@ -38,7 +38,7 @@ test:
 
 about:
   home: https://www.vapoursynth.com/
-  summary: 'A video processing framework with simplicity in mind'
+  summary: A video processing framework with simplicity in mind
   description: |
     VapourSynth is an application for video manipulation. Or a plugin. Or a library.
     It's hard to tell because it has a core library written in C++
