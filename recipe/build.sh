@@ -11,9 +11,11 @@ then
 fi
 
 ./autogen.sh
-./configure --prefix="$PREFIX" --enable-shared --disable-static
+./configure --prefix="$PREFIX" --enable-shared --disable-static --enable-python-module=no
 make -j${CPU_COUNT}
 make install
 
 mkdir -p $PREFIX/lib/vapoursynth
 touch $PREFIX/lib/vapoursynth/.keep
+
+python -m pip install -vv .

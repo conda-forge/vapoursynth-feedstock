@@ -30,6 +30,8 @@ requirements:
   host:
     - zimg =3.0
     - python
+    - pip
+    - setuptools
     - cython >=0.28
   run:
     - python
