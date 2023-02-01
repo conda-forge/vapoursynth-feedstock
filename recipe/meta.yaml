@@ -8,10 +8,13 @@ package:
 source:
   url: https://github.com/vapoursynth/vapoursynth/archive/R{{ version }}.tar.gz
   sha256: a5d4feeb056679dd1204153250d7c1d38e5a639e995d3c4e3a8e2e8fe1425b75
+  patches:
+    # Prevent optimization use the length of placeholder path
+    - patches/autoload-system-path-relocatable.patch
 
 build:
   skip: true  # [win]
-  number: 1
+  number: 2
 
 requirements:
   build:
@@ -32,9 +35,15 @@ requirements:
     - python
 
 test:
+  requires:
+    - {{ compiler('c') }}
+  files:
+    - test_autoload.sh
+    - crash-plugin.c
   commands:
     - vspipe --version
     - python3 -c "from vapoursynth import core; print(core.version())"
+    - bash test_autoload.sh
 
 about:
   home: https://www.vapoursynth.com/
