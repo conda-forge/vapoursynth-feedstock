@@ -6,46 +6,62 @@ package:
   version: {{ version }}
 
 source:
-  url: https://github.com/vapoursynth/vapoursynth/archive/R{{ version }}.tar.gz
-  sha256: a5d4feeb056679dd1204153250d7c1d38e5a639e995d3c4e3a8e2e8fe1425b75
-  patches:
-    # Prevent optimization use the length of placeholder path
-    - patches/autoload-system-path-relocatable.patch
+  - url: https://github.com/vapoursynth/vapoursynth/archive/R{{ version }}.tar.gz
+    sha256: a5d4feeb056679dd1204153250d7c1d38e5a639e995d3c4e3a8e2e8fe1425b75
+    patches:
+      # Prevent optimization use the length of placeholder path
+      - patches/autoload-system-path-relocatable.patch  # [not win]
+      # Link to zimg library
+      - patches/link-to-zimg-library.patch  # [win]
+      # Do not use fixed python path / version
+      - patches/script-fix-python-path.patch  # [win]
+      # Do not install vapoursynth.dll to site-packages
+      - patches/do-not-install-vapoursynth-dll.patch  # [win]
+  - url: https://github.com/sekrit-twc/libp2p/archive/5e65679ae54d0f9fa412ab36289eb2255e341625.tar.gz  # [win]
+    folder: libp2p  # [win]
+    sha256: c60bd912cbf8923322000529678f03c279b2d36176cd5242ef2640f5bc30bb78  # [win]
+  - url: https://github.com/AviSynth/AviSynthPlus/archive/refs/tags/v3.7.2.tar.gz  # [win]
+    folder: AviSynthPlus  # [win]
+    sha256: 6159fd976dffa62d5db5277cbb0b3b7f7a4ee92fc8667edd32da9840a669ccc1  # [win]
 
 build:
-  skip: true  # [win]
   number: 2
 
 requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - automake
-    - pkg-config
-    - libtool
-    - make
+    - automake  # [not win]
+    - pkg-config  # [not win]
+    - libtool  # [not win]
+    - make  # [not win]
+    - m2-patch  # [win]
     - cross-python_{{ target_platform }}  # [build_platform != target_platform]
     - python  # [build_platform != target_platform]
     - cython >=0.28  # [build_platform != target_platform]
   host:
     - zimg =3.0
+    - setuptools
     - python
     - pip
     - setuptools
     - cython >=0.28
   run:
     - python
+    - ucrt  # [win]
 
 test:
   requires:
     - {{ compiler('c') }}
   files:
-    - test_autoload.sh
+    - test_autoload.sh  # [not win]
+    - test_autoload.bat  # [win]
     - crash-plugin.c
   commands:
     - vspipe --version
-    - python3 -c "from vapoursynth import core; print(core.version())"
-    - bash test_autoload.sh
+    - python -c "from vapoursynth import core; print(core.version())"
+    - bash test_autoload.sh  # [not win]
+    - test_autoload.bat  # [win]
 
 about:
   home: https://www.vapoursynth.com/
