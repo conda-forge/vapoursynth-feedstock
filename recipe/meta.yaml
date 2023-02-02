@@ -31,6 +31,7 @@ requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - autoconf <2.71  # [not win]
     - automake  # [not win]
     - pkg-config  # [not win]
     - libtool  # [not win]
