@@ -8,8 +8,8 @@ index 55a797d3..f0b10569 100644
    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
 -    <IncludePath>../../include;../../zimg/src/zimg/api;$(IncludePath)</IncludePath>
 -    <LibraryPath>$(SolutionDir)$(Platform)\$(Configuration);$(LibraryPath)</LibraryPath>
-+    <IncludePath>../../include;$(PREFIX)\Library\include;$(IncludePath)</IncludePath>
-+    <LibraryPath>$(PREFIX)\Library\lib;$(SolutionDir)$(Platform)\$(Configuration);$(LibraryPath)</LibraryPath>
++    <IncludePath>../../include;$(LIBRARY_INC);$(IncludePath)</IncludePath>
++    <LibraryPath>$(LIBRARY_LIB);$(SolutionDir)$(Platform)\$(Configuration);$(LibraryPath)</LibraryPath>
    </PropertyGroup>
    <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
      <ClCompile>

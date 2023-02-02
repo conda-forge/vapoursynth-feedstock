@@ -2,19 +2,19 @@ cd msvc_project
 mkdir build
 cd build
 
-MSBuild.exe ../../libp2p/_msvc/libp2p_simd/libp2p_simd.vcxproj /p:configuration=release /p:platform=x64 /p:PlatformToolset=v142 /maxCpuCount:%NUMBER_OF_PROCESSORS% /p:SolutionDir=%cd%\
+MSBuild.exe ../../libp2p/_msvc/libp2p_simd/libp2p_simd.vcxproj /p:configuration=release /p:platform=x64 /p:PlatformToolset=v142 /maxCpuCount:%CPU_COUNT% /p:SolutionDir=%cd%\
 if %ERRORLEVEL% neq 0 exit 1
-MSBuild.exe ../Core/Core.vcxproj /p:configuration=release /p:platform=x64 /p:PlatformToolset=v142 /maxCpuCount:%NUMBER_OF_PROCESSORS% /p:SolutionDir=%cd%\
+MSBuild.exe ../Core/Core.vcxproj /p:configuration=release /p:platform=x64 /p:PlatformToolset=v142 /maxCpuCount:%CPU_COUNT% /p:SolutionDir=%cd%\
 if %ERRORLEVEL% neq 0 exit 1
-MSBuild.exe ../VSScript/VSScript.vcxproj /p:configuration=release /p:platform=x64 /p:PlatformToolset=v142 /maxCpuCount:%NUMBER_OF_PROCESSORS% /p:SolutionDir=%cd%\
+MSBuild.exe ../VSScript/VSScript.vcxproj /p:configuration=release /p:platform=x64 /p:PlatformToolset=v142 /maxCpuCount:%CPU_COUNT% /p:SolutionDir=%cd%\
 if %ERRORLEVEL% neq 0 exit 1
-MSBuild.exe ../VSPipe/VSPipe.vcxproj /p:configuration=release /p:platform=x64 /p:PlatformToolset=v142 /maxCpuCount:%NUMBER_OF_PROCESSORS% /p:SolutionDir=%cd%\
+MSBuild.exe ../VSPipe/VSPipe.vcxproj /p:configuration=release /p:platform=x64 /p:PlatformToolset=v142 /maxCpuCount:%CPU_COUNT% /p:SolutionDir=%cd%\
 if %ERRORLEVEL% neq 0 exit 1
-MSBuild.exe ../AvsCompat/AvsCompat.vcxproj /p:configuration=release /p:platform=x64 /p:PlatformToolset=v142 /maxCpuCount:%NUMBER_OF_PROCESSORS% /p:SolutionDir=%cd%\
+MSBuild.exe ../AvsCompat/AvsCompat.vcxproj /p:configuration=release /p:platform=x64 /p:PlatformToolset=v142 /maxCpuCount:%CPU_COUNT% /p:SolutionDir=%cd%\
 if %ERRORLEVEL% neq 0 exit 1
-MSBuild.exe ../AVFS/AVFS.vcxproj /p:configuration=release /p:platform=x64 /p:PlatformToolset=v142 /maxCpuCount:%NUMBER_OF_PROCESSORS% /p:SolutionDir=%cd%\
+MSBuild.exe ../AVFS/AVFS.vcxproj /p:configuration=release /p:platform=x64 /p:PlatformToolset=v142 /maxCpuCount:%CPU_COUNT% /p:SolutionDir=%cd%\
 if %ERRORLEVEL% neq 0 exit 1
-MSBuild.exe ../VSVFW/VSVFW.vcxproj /p:configuration=release /p:platform=x64 /p:PlatformToolset=v142 /maxCpuCount:%NUMBER_OF_PROCESSORS% /p:SolutionDir=%cd%\
+MSBuild.exe ../VSVFW/VSVFW.vcxproj /p:configuration=release /p:platform=x64 /p:PlatformToolset=v142 /maxCpuCount:%CPU_COUNT% /p:SolutionDir=%cd%\
 if %ERRORLEVEL% neq 0 exit 1
 
 cd x64/release
@@ -70,5 +70,5 @@ echo Libs: -L${libdir} -lVSScript
 echo Cflags: -I${includedir}
 )>%LIBRARY_LIB%\pkgconfig\vapoursynth-script.pc
 
-python -m pip install -vv .
+"%PYTHON%" -m pip install -vv .
 if %ERRORLEVEL% neq 0 exit 1

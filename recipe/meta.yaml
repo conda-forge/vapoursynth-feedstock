@@ -41,14 +41,12 @@ requirements:
     - cython >=0.28  # [build_platform != target_platform]
   host:
     - zimg =3.0
-    - setuptools
     - python
     - pip
     - setuptools
     - cython >=0.28
   run:
     - python
-    - ucrt  # [win]
 
 test:
   requires:
@@ -59,7 +57,8 @@ test:
     - crash-plugin.c
   commands:
     - vspipe --version
-    - python -c "from vapoursynth import core; print(core.version())"
+    - '"$PYTHON" -c "from vapoursynth import core; print(core.version())"'  # [not win]
+    - '"%PYTHON%" -c "from vapoursynth import core; print(core.version())"'  # [win]
     - bash test_autoload.sh  # [not win]
     - test_autoload.bat  # [win]
 
@@ -79,3 +78,4 @@ about:
 extra:
   recipe-maintainers:
     - sshockwave
+    - tongyuantongyu

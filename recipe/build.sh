@@ -18,4 +18,4 @@ make install
 mkdir -p $PREFIX/lib/vapoursynth
 touch $PREFIX/lib/vapoursynth/.keep
 
-python -m pip install -vv .
+"$PYTHON" -m pip install -vv .

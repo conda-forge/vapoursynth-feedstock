@@ -10,5 +10,5 @@ case "$target_platform" in
 esac
 
 set +e  # expect an error exit here
-python -c "from vapoursynth import core; dir(core)"
+"$PYTHON" -c "from vapoursynth import core; dir(core)"
 [ $? -eq 3 ] && exit 0 || exit 1
