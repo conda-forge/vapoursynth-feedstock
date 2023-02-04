@@ -333,4 +333,5 @@ Feedstock Maintainers
 =====================
 
 * [@sshockwave](https://github.com/sshockwave/)
+* [@tongyuantongyu](https://github.com/tongyuantongyu/)
 
