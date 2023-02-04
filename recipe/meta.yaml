@@ -25,13 +25,13 @@ source:
     sha256: 6159fd976dffa62d5db5277cbb0b3b7f7a4ee92fc8667edd32da9840a669ccc1  # [win]
 
 build:
-  number: 2
+  number: 3
 
 requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - autoconf <2.71  # [not win]
+    - autoconf  # [not win]
     - automake  # [not win]
     - pkg-config  # [not win]
     - libtool  # [not win]
