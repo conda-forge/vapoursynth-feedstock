@@ -2,6 +2,8 @@ cd msvc_project
 mkdir build
 cd build
 
+set VSPYTHON_PATH=%PREFIX%
+
 MSBuild.exe ../../libp2p/_msvc/libp2p_simd/libp2p_simd.vcxproj /p:configuration=release /p:platform=x64 /p:PlatformToolset=v142 /maxCpuCount:%CPU_COUNT% /p:SolutionDir=%cd%\
 if %ERRORLEVEL% neq 0 exit 1
 MSBuild.exe ../Core/Core.vcxproj /p:configuration=release /p:platform=x64 /p:PlatformToolset=v142 /maxCpuCount:%CPU_COUNT% /p:SolutionDir=%cd%\

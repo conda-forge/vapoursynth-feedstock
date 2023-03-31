@@ -2,17 +2,6 @@ diff --git a/msvc_project/VSScript/VSScript.vcxproj b/msvc_project/VSScript/VSSc
 index 7432af58..d004d088 100644
 --- a/msvc_project/VSScript/VSScript.vcxproj
 +++ b/msvc_project/VSScript/VSScript.vcxproj
-@@ -79,8 +79,8 @@
-     <LibraryPath>C:\Program Files %28x86%29\Python310-32\libs;$(LibraryPath)</LibraryPath>
-   </PropertyGroup>
-   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
--    <IncludePath>../../include;C:\Program Files\Python310\include;$(IncludePath)</IncludePath>
--    <LibraryPath>C:\Program Files\Python310\libs;$(LibraryPath)</LibraryPath>
-+    <IncludePath>../../include;$(PREFIX)\include;$(IncludePath)</IncludePath>
-+    <LibraryPath>$(PREFIX)\libs;$(LibraryPath)</LibraryPath>
-   </PropertyGroup>
-   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-     <ClCompile>
 @@ -146,7 +146,7 @@
        <FunctionLevelLinking>true</FunctionLevelLinking>
        <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -26,7 +15,7 @@ index 7432af58..d004d088 100644
        <GenerateDebugInformation>true</GenerateDebugInformation>
        <EnableCOMDATFolding>true</EnableCOMDATFolding>
        <OptimizeReferences>true</OptimizeReferences>
--      <DelayLoadDLLs>python310.dll;%(DelayLoadDLLs)</DelayLoadDLLs>
+-      <DelayLoadDLLs>python311.dll;%(DelayLoadDLLs)</DelayLoadDLLs>
 +      <DelayLoadDLLs>python$(CONDA_PY).dll;%(DelayLoadDLLs)</DelayLoadDLLs>
      </Link>
    </ItemDefinitionGroup>
@@ -39,7 +28,7 @@ index 247ff6a6..3a9f6fd7 100644
  #ifdef VSSCRIPT_PYTHON38
      const std::wstring pythonDllName = L"python38.dll";
  #else
--    const std::wstring pythonDllName = L"python310.dll";
+-    const std::wstring pythonDllName = L"python311.dll";
 +    const std::wstring pythonDllName = L"python" VS_PYTHON_VERSION ".dll";
  #endif
  
