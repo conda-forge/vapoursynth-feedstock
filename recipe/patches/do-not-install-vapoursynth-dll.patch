@@ -89,7 +89,7 @@ index cc7f788e..2935fabf 100644
 @@ -91,7 +17,7 @@ setup(
      author_email = "fredrik.mellbin@gmail.com",
      license = "LGPL 2.1 or later",
-     version = "62",
+     version = "63",
 -    long_description = "A portable replacement for Avisynth" if is_portable else "A modern replacement for Avisynth",
 +    long_description = "A modern replacement for Avisynth",
      platforms = "All",

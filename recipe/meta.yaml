@@ -1,5 +1,5 @@
 {% set name = "VapourSynth" %}
-{% set version = "62" %}
+{% set version = "63" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   - url: https://github.com/vapoursynth/vapoursynth/archive/R{{ version }}.tar.gz
-    sha256: 6f3eb7e2e32a0572b363e08d16092418e99bd9c8f06661645a0995f1f736d438
+    sha256: ed909b3c58e79bcbb056d07c5d301222ba8001222b4b40d5c1123be35fea9ae2
     patches:
       # Prevent optimization use the length of placeholder path
       - patches/autoload-system-path-relocatable.patch  # [not win]
@@ -17,6 +17,8 @@ source:
       - patches/script-fix-python-path.patch  # [win]
       # Do not install vapoursynth.dll to site-packages
       - patches/do-not-install-vapoursynth-dll.patch  # [win]
+      # Revert since libc++ has incomplete implementation of std::from_chars
+      - patches/Revert-Use-string_view-for-expr-tokenization.patch  # [osx]
   - url: https://github.com/sekrit-twc/libp2p/archive/5e65679ae54d0f9fa412ab36289eb2255e341625.tar.gz  # [win]
     folder: libp2p  # [win]
     sha256: c60bd912cbf8923322000529678f03c279b2d36176cd5242ef2640f5bc30bb78  # [win]
