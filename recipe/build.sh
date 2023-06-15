@@ -1,5 +1,10 @@
 set -ex
 
+if [[ "$target_platform" == osx-* ]]
+then
+  CXXFLAGS="${CXXFLAGS} -D_LIBCPP_DISABLE_AVAILABILITY"
+fi
+
 if [[ "$target_platform" == "osx-arm64" ]]
 then
   # Patch Cython such that it can be executed using Python
