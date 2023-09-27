@@ -17,8 +17,6 @@ source:
       - patches/script-fix-python-path.patch  # [win]
       # Do not install vapoursynth.dll to site-packages
       - patches/do-not-install-vapoursynth-dll.patch  # [win]
-      # Revert since libc++ has incomplete implementation of std::from_chars
-      - patches/Revert-Use-string_view-for-expr-tokenization.patch  # [osx]
   - url: https://github.com/sekrit-twc/libp2p/archive/5e65679ae54d0f9fa412ab36289eb2255e341625.tar.gz  # [win]
     folder: libp2p  # [win]
     sha256: c60bd912cbf8923322000529678f03c279b2d36176cd5242ef2640f5bc30bb78  # [win]
