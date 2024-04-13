@@ -52,14 +52,20 @@ requirements:
 test:
   requires:
     - {{ compiler('c') }}
+  imports:
+    - vapoursynth
   files:
     - test_autoload.sh  # [not win]
     - test_autoload.bat  # [win]
     - crash-plugin.c
+  source_files:
+    - test
   commands:
     - vspipe --version
     - '"$PYTHON" -c "from vapoursynth import core; print(core.version())"'  # [not win]
     - '"%PYTHON%" -c "from vapoursynth import core; print(core.version())"'  # [win]
+    - '"%PYTHON%" -m unittest discover -s test -p "*test.py"'  # [win]
+    - '"$PYTHON" -m unittest discover -s test -p "*test.py"'  # [not win]
     - bash test_autoload.sh  # [not win]
     - test_autoload.bat  # [win]
 
@@ -80,3 +86,4 @@ extra:
   recipe-maintainers:
     - sshockwave
     - tongyuantongyu
+    - sdy623

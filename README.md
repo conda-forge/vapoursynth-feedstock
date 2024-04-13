@@ -374,6 +374,7 @@ In order to produce a uniquely identifiable distribution:
 Feedstock Maintainers
 =====================
 
+* [@sdy623](https://github.com/sdy623/)
 * [@sshockwave](https://github.com/sshockwave/)
 * [@tongyuantongyu](https://github.com/tongyuantongyu/)
 
