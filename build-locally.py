@@ -33,9 +33,6 @@ def run_osx_build(ns):
     script = ".scripts/run_osx_build.sh"
     subprocess.check_call([script])
 
-def run_win_build(ns):
-    script = r".scripts\run_win_build.bat"
-    subprocess.check_call([script])
 
 def verify_config(ns):
     valid_configs = {
@@ -59,7 +56,12 @@ def verify_config(ns):
         print(f"selected {ns.config}")
     else:
         raise ValueError("config " + ns.config + " is not valid")
-    if ns.config.startswith("osx"):
+    # Remove the following, as implemented
+    if ns.config.startswith("win"):
+        raise ValueError(
+            f"only Linux/macOS configs currently supported, got {ns.config}"
+        )
+    elif ns.config.startswith("osx"):
         if "OSX_SDK_DIR" not in os.environ:
             raise RuntimeError(
                 "Need OSX_SDK_DIR env variable set. Run 'export OSX_SDK_DIR=$PWD/SDKs' "
@@ -92,8 +94,6 @@ def main(args=None):
             run_docker_build(ns)
         elif ns.config.startswith("osx"):
             run_osx_build(ns)
-        elif ns.config.startswith("win"):
-            run_win_build(ns)
     finally:
         recipe_license_file = os.path.join(
             "recipe", "recipe-scripts-license.txt"
