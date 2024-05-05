@@ -4,19 +4,19 @@ cd build
 
 set VSPYTHON_PATH=%PREFIX%
 
-MSBuild.exe ../../libp2p/_msvc/libp2p_simd/libp2p_simd.vcxproj /p:configuration=release /p:platform=x64 /p:PlatformToolset=v142 /maxCpuCount:%CPU_COUNT% /p:SolutionDir=%cd%\
+MSBuild.exe ../../libp2p/_msvc/libp2p_simd/libp2p_simd.vcxproj /p:configuration=release /p:platform=x64 /maxCpuCount:%CPU_COUNT% /p:SolutionDir=%cd%\
 if %ERRORLEVEL% neq 0 exit 1
-MSBuild.exe ../Core/Core.vcxproj /p:configuration=release /p:platform=x64 /p:PlatformToolset=v142 /maxCpuCount:%CPU_COUNT% /p:SolutionDir=%cd%\
+MSBuild.exe ../Core/Core.vcxproj /p:configuration=release /p:platform=x64 /maxCpuCount:%CPU_COUNT% /p:SolutionDir=%cd%\
 if %ERRORLEVEL% neq 0 exit 1
-MSBuild.exe ../VSScript/VSScript.vcxproj /p:configuration=release /p:platform=x64 /p:PlatformToolset=v142 /maxCpuCount:%CPU_COUNT% /p:SolutionDir=%cd%\
+MSBuild.exe ../VSScript/VSScript.vcxproj /p:configuration=release /p:platform=x64 /maxCpuCount:%CPU_COUNT% /p:SolutionDir=%cd%\
 if %ERRORLEVEL% neq 0 exit 1
-MSBuild.exe ../VSPipe/VSPipe.vcxproj /p:configuration=release /p:platform=x64 /p:PlatformToolset=v142 /maxCpuCount:%CPU_COUNT% /p:SolutionDir=%cd%\
+MSBuild.exe ../VSPipe/VSPipe.vcxproj /p:configuration=release /p:platform=x64 /maxCpuCount:%CPU_COUNT% /p:SolutionDir=%cd%\
 if %ERRORLEVEL% neq 0 exit 1
-MSBuild.exe ../AvsCompat/AvsCompat.vcxproj /p:configuration=release /p:platform=x64 /p:PlatformToolset=v142 /maxCpuCount:%CPU_COUNT% /p:SolutionDir=%cd%\
+MSBuild.exe ../AvsCompat/AvsCompat.vcxproj /p:configuration=release /p:platform=x64 /maxCpuCount:%CPU_COUNT% /p:SolutionDir=%cd%\
 if %ERRORLEVEL% neq 0 exit 1
-MSBuild.exe ../AVFS/AVFS.vcxproj /p:configuration=release /p:platform=x64 /p:PlatformToolset=v142 /maxCpuCount:%CPU_COUNT% /p:SolutionDir=%cd%\
+MSBuild.exe ../AVFS/AVFS.vcxproj /p:configuration=release /p:platform=x64 /maxCpuCount:%CPU_COUNT% /p:SolutionDir=%cd%\
 if %ERRORLEVEL% neq 0 exit 1
-MSBuild.exe ../VSVFW/VSVFW.vcxproj /p:configuration=release /p:platform=x64 /p:PlatformToolset=v142 /maxCpuCount:%CPU_COUNT% /p:SolutionDir=%cd%\
+MSBuild.exe ../VSVFW/VSVFW.vcxproj /p:configuration=release /p:platform=x64 /maxCpuCount:%CPU_COUNT% /p:SolutionDir=%cd%\
 if %ERRORLEVEL% neq 0 exit 1
 
 cd x64/release
@@ -25,12 +25,12 @@ copy VapourSynth.dll %PREFIX%\VapourSynth.dll
 copy VSScript.dll %PREFIX%\VSScript.dll
 copy VSPipe.exe %PREFIX%\VSPipe.exe
 copy AVFS.exe %PREFIX%\AVFS.exe
-mkdir %PREFIX%\vapoursynth64\coreplugins
-copy AvsCompat.dll %PREFIX%\vapoursynth64\coreplugins\AvsCompat.dll
+mkdir %PREFIX%\vs-coreplugins
+copy AvsCompat.dll %PREFIX%\vs-coreplugins\AvsCompat.dll
 copy VSVFW.dll %PREFIX%\VSVFW.dll
-mkdir %PREFIX%\vapoursynth64\plugins
+mkdir %PREFIX%\vs-plugins
 cd. > %PREFIX%\portable.vs
-cd. > %PREFIX%\vapoursynth64\plugins\.keep
+cd. > %PREFIX%\vs-plugins\.keep
 
 mkdir %LIBRARY_LIB%
 copy VapourSynth.lib %LIBRARY_LIB%\VapourSynth.lib
