@@ -17,12 +17,12 @@ source:
       - patches/script-fix-python-path.patch  # [win]
       # Do not install vapoursynth.dll to site-packages
       - patches/do-not-install-vapoursynth-dll.patch  # [win]
-  - url: https://github.com/sekrit-twc/libp2p/archive/5e65679ae54d0f9fa412ab36289eb2255e341625.tar.gz  # [win]
+  - url: https://bitbucket.org/the-sekrit-twc/libp2p/get/f52c14efc88c53317d00f45610a9e42030ba8a21.tar.gz  # [win]
     folder: libp2p  # [win]
     sha256: c60bd912cbf8923322000529678f03c279b2d36176cd5242ef2640f5bc30bb78  # [win]
-  - url: https://github.com/AviSynth/AviSynthPlus/archive/refs/tags/v3.7.2.tar.gz  # [win]
+  - url: https://github.com/AviSynth/AviSynthPlus/archive/refs/tags/v3.7.3.tar.gz  # [win]
     folder: AviSynthPlus  # [win]
-    sha256: 6159fd976dffa62d5db5277cbb0b3b7f7a4ee92fc8667edd32da9840a669ccc1  # [win]
+    sha256: b847705af6f16fa26664d06e0fea2bda14a7f6aac8249a9c37e4106ecb8fd44c  # [win]
 
 build:
   number: 0

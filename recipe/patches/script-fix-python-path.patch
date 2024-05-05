@@ -6,11 +6,11 @@ index 7432af58..d004d088 100644
        <FunctionLevelLinking>true</FunctionLevelLinking>
        <IntrinsicFunctions>true</IntrinsicFunctions>
        <SDLCheck>false</SDLCheck>
--      <PreprocessorDefinitions>NOMINMAX;VS_CORE_EXPORTS;VS_TARGET_OS_WINDOWS;_CRT_SECURE_NO_WARNINGS;HAVE_ROUND;NDEBUG</PreprocessorDefinitions>
-+      <PreprocessorDefinitions>NOMINMAX;VS_CORE_EXPORTS;VS_TARGET_OS_WINDOWS;_CRT_SECURE_NO_WARNINGS;HAVE_ROUND;NDEBUG;VS_PYTHON_VERSION="$(CONDA_PY)"</PreprocessorDefinitions>
+-      <PreprocessorDefinitions>NOMINMAX;VS_CORE_EXPORTS;VS_TARGET_OS_WINDOWS;VS_USE_LATEST_API;_CRT_SECURE_NO_WARNINGS;HAVE_ROUND;NDEBUG</PreprocessorDefinitions>
++      <PreprocessorDefinitions>NOMINMAX;VS_CORE_EXPORTS;VS_TARGET_OS_WINDOWS;VS_USE_LATEST_API;_CRT_SECURE_NO_WARNINGS;HAVE_ROUND;NDEBUG;VS_PYTHON_VERSION="$(CONDA_PY)"</PreprocessorDefinitions>
        <BufferSecurityCheck>false</BufferSecurityCheck>
        <ConformanceMode>true</ConformanceMode>
-       <LanguageStandard>stdcpp14</LanguageStandard>
+       <LanguageStandard>stdcpp17</LanguageStandard>
 @@ -155,7 +155,7 @@
        <GenerateDebugInformation>true</GenerateDebugInformation>
        <EnableCOMDATFolding>true</EnableCOMDATFolding>
