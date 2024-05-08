@@ -1,5 +1,5 @@
 {% set name = "VapourSynth" %}
-{% set version = "66" %}
+{% set version = "67" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   - url: https://github.com/vapoursynth/vapoursynth/archive/R{{ version }}.tar.gz
-    sha256: e2c82b1f583adbc33dabbe59c0dc65e6aede70dedebe79be94155cb38d418b2c
+    sha256: 0224be706a251d7936396aa83dfb21c7a7764c8bd80c29085a6415ac1453420d
     patches:
       # Prevent optimization use the length of placeholder path
       - patches/autoload-system-path-relocatable.patch  # [not win]
@@ -17,12 +17,12 @@ source:
       - patches/script-fix-python-path.patch  # [win]
       # Do not install vapoursynth.dll to site-packages
       - patches/do-not-install-vapoursynth-dll.patch  # [win]
-  - url: https://github.com/sekrit-twc/libp2p/archive/5e65679ae54d0f9fa412ab36289eb2255e341625.tar.gz  # [win]
+  - url: https://bitbucket.org/the-sekrit-twc/libp2p/get/f52c14efc88c53317d00f45610a9e42030ba8a21.tar.gz  # [win]
     folder: libp2p  # [win]
-    sha256: c60bd912cbf8923322000529678f03c279b2d36176cd5242ef2640f5bc30bb78  # [win]
-  - url: https://github.com/AviSynth/AviSynthPlus/archive/refs/tags/v3.7.2.tar.gz  # [win]
+    sha256: 513f70ea554749aa090b0e2a62dedba7d7cda236968bcfafc07c0d774828ce6d  # [win]
+  - url: https://github.com/AviSynth/AviSynthPlus/archive/refs/tags/v3.7.3.tar.gz  # [win]
     folder: AviSynthPlus  # [win]
-    sha256: 6159fd976dffa62d5db5277cbb0b3b7f7a4ee92fc8667edd32da9840a669ccc1  # [win]
+    sha256: b847705af6f16fa26664d06e0fea2bda14a7f6aac8249a9c37e4106ecb8fd44c  # [win]
 
 build:
   number: 0
@@ -30,6 +30,7 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
     - autoconf  # [not win]
     - automake  # [not win]
