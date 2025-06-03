@@ -13,8 +13,6 @@ source:
       - patches/autoload-system-path-relocatable.patch  # [not win]
       # Link to zimg library
       - patches/link-to-zimg-library.patch  # [win]
-      # Do not use fixed python path / version
-      - patches/script-fix-python-path.patch  # [win]
       # Do not install vapoursynth.dll to site-packages
       - patches/do-not-install-vapoursynth-dll.patch  # [win]
   - url: https://bitbucket.org/the-sekrit-twc/libp2p/get/f52c14efc88c53317d00f45610a9e42030ba8a21.tar.gz  # [win]
