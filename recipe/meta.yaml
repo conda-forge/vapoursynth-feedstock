@@ -1,5 +1,5 @@
 {% set name = "VapourSynth" %}
-{% set version = "71" %}
+{% set version = "72" %}
 
 package:
   name: {{ name|lower }}
@@ -7,14 +7,12 @@ package:
 
 source:
   - url: https://github.com/vapoursynth/vapoursynth/archive/R{{ version }}.tar.gz
-    sha256: c56d6de16d0a24db7eee1bd5e633229b0bd8a746eafcfe41945a22f9d44f8bd6
+    sha256: 650f77feebfd08842b521273f59e0c88f7ba9d7cb5f151d89b79b8dfdd4ce633
     patches:
       # Prevent optimization use the length of placeholder path
       - patches/autoload-system-path-relocatable.patch  # [not win]
       # Link to zimg library
       - patches/link-to-zimg-library.patch  # [win]
-      # Do not use fixed python path / version
-      - patches/script-fix-python-path.patch  # [win]
       # Do not install vapoursynth.dll to site-packages
       - patches/do-not-install-vapoursynth-dll.patch  # [win]
   - url: https://bitbucket.org/the-sekrit-twc/libp2p/get/f52c14efc88c53317d00f45610a9e42030ba8a21.tar.gz  # [win]
