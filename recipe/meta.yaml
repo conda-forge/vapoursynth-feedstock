@@ -51,6 +51,7 @@ requirements:
 test:
   requires:
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}  # for liblto_plugin.so
   files:
     - test_autoload.sh  # [not win]
     - test_autoload.bat  # [win]
