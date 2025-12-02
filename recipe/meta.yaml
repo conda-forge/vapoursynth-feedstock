@@ -1,5 +1,5 @@
 {% set name = "VapourSynth" %}
-{% set version = "72" %}
+{% set version = "73" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   - url: https://github.com/vapoursynth/vapoursynth/archive/R{{ version }}.tar.gz
-    sha256: 650f77feebfd08842b521273f59e0c88f7ba9d7cb5f151d89b79b8dfdd4ce633
+    sha256: 1bb8ffe31348eaf46d8f541b138f0136d10edaef0c130c1e5a13aa4a4b057280
     patches:
       # Prevent optimization use the length of placeholder path
       - patches/autoload-system-path-relocatable.patch  # [not win]
@@ -23,7 +23,7 @@ source:
     sha256: b847705af6f16fa26664d06e0fea2bda14a7f6aac8249a9c37e4106ecb8fd44c  # [win]
 
 build:
-  number: 1
+  number: 0
 
 requirements:
   build:
@@ -51,6 +51,7 @@ requirements:
 test:
   requires:
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}  # for liblto_plugin.so
   files:
     - test_autoload.sh  # [not win]
     - test_autoload.bat  # [win]
