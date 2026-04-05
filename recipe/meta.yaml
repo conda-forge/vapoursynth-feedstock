@@ -1,5 +1,5 @@
 {% set name = "VapourSynth" %}
-{% set version = "73" %}
+{% set version = "74" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   - url: https://github.com/vapoursynth/vapoursynth/archive/R{{ version }}.tar.gz
-    sha256: 1bb8ffe31348eaf46d8f541b138f0136d10edaef0c130c1e5a13aa4a4b057280
+    sha256: 9ebf49720a48a6b5e4abdfd969f318545dde82d67f3e3c68a0799371333d96be
     patches:
       # Prevent optimization use the length of placeholder path
       - patches/autoload-system-path-relocatable.patch  # [not win]
