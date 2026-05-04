@@ -26,8 +26,7 @@ requirements:
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
-    - autoconf  # [not win]
-    - automake  # [not win]
+    - meson  # [not win]
     - pkg-config  # [not win]
     - libtool  # [not win]
     - make  # [not win]
