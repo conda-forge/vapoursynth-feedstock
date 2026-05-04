@@ -9,12 +9,8 @@ source:
   - url: https://github.com/vapoursynth/vapoursynth/archive/R{{ version }}.tar.gz
     sha256: 9ebf49720a48a6b5e4abdfd969f318545dde82d67f3e3c68a0799371333d96be
     patches:
-      # Prevent optimization use the length of placeholder path
-      - patches/autoload-system-path-relocatable.patch  # [not win]
       # Link to zimg library
       - patches/link-to-zimg-library.patch  # [win]
-      # Do not install vapoursynth.dll to site-packages
-      - patches/do-not-install-vapoursynth-dll.patch  # [win]
   - url: https://bitbucket.org/the-sekrit-twc/libp2p/get/f52c14efc88c53317d00f45610a9e42030ba8a21.tar.gz  # [win]
     folder: libp2p  # [win]
     sha256: 513f70ea554749aa090b0e2a62dedba7d7cda236968bcfafc07c0d774828ce6d  # [win]
