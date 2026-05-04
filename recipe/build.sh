@@ -15,7 +15,7 @@ then
   chmod +x "$old_cy"
 fi
 
-mkdir -p $PREFIX/lib/vapoursynth
-touch $PREFIX/lib/vapoursynth/.keep
+mkdir -p $SP_DIR/vapoursynth/plugins
+touch $SP_DIR/vapoursynth/plugins/.keep
 
 "$PYTHON" -m pip install -vv .
