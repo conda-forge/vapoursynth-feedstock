@@ -27,7 +27,6 @@ requirements:
     - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
     - meson  # [not win]
-    - meson-python  # [not win]
     - pkg-config  # [not win]
     - libtool  # [not win]
     - make  # [not win]
@@ -41,6 +40,7 @@ requirements:
     - pip
     - setuptools
     - cython >=0.28
+    - meson-python  # [not win]
   run:
     - python
 
