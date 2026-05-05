@@ -39,6 +39,7 @@ requirements:
     - cython >=0.28
     - meson-python  # [not win]
   run:
+    - python
 
 test:
   requires:
