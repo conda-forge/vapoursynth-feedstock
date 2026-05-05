@@ -15,12 +15,7 @@ then
   chmod +x "$old_cy"
 fi
 
-./autogen.sh
-./configure --prefix="$PREFIX" --enable-shared --disable-static --enable-python-module=no
-make -j${CPU_COUNT}
-make install
-
-mkdir -p $PREFIX/lib/vapoursynth
-touch $PREFIX/lib/vapoursynth/.keep
+mkdir -p $SP_DIR/vapoursynth/plugins
+touch $SP_DIR/vapoursynth/plugins/.keep
 
 "$PYTHON" -m pip install -vv .
