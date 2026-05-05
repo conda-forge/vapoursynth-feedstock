@@ -27,12 +27,10 @@ requirements:
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
-    - meson  # [not win]
     - pkg-config  # [not win]
     - libtool  # [not win]
     - make  # [not win]
     - m2-patch  # [win]
-    - cython >=0.28
   host:
     - zimg =3.0
     - python
@@ -41,7 +39,6 @@ requirements:
     - cython >=0.28
     - meson-python  # [not win]
   run:
-    - python
 
 test:
   requires:
