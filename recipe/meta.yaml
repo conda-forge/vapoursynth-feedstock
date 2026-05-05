@@ -19,6 +19,7 @@ source:
     sha256: b847705af6f16fa26664d06e0fea2bda14a7f6aac8249a9c37e4106ecb8fd44c  # [win]
 
 build:
+  skip: true  # [py<312]
   number: 0
 
 requirements:
@@ -34,13 +35,13 @@ requirements:
     - cython >=0.28
   host:
     - zimg =3.0
-    - python >=3.12
+    - python
     - pip
     - setuptools
     - cython >=0.28
     - meson-python  # [not win]
   run:
-    - python >=3.12
+    - python
 
 test:
   requires:
