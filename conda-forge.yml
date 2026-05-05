@@ -2,6 +2,10 @@ build_platform:
   linux_aarch64: linux_aarch64
   linux_ppc64le: linux_ppc64le
   osx_arm64: osx_arm64
+provider:
+  linux_aarch64: default
+  linux_ppc64le: default
+  osx_arm64: default
 conda_forge_output_validation: true
 github:
   branch_name: main
